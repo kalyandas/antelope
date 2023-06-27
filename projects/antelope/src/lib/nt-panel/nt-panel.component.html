@@ -1,0 +1,44 @@
+<ng-container *ngIf="metadata">
+    <nz-card [nzTitle]="metadata.title" [nzHoverable]="true" [nzLoading]="loading">
+        <nt-table *ngIf="metadata.display.type === 'table'" 
+        [api]="metadata.api" 
+        [model]="metadata.response.model" 
+        [eventEmitters]="metadata.eventEmitters" 
+        [eventSubscriptions]="metadata.eventSubcriptions"
+        (loading)="onLoading($event)"
+        ></nt-table>
+        <nt-vertical-bar *ngIf="metadata.display.type === 'vertical-bar'" 
+        [api]="metadata.api" 
+        [model]="metadata.response.model" 
+        [eventEmitters]="metadata.eventEmitters" 
+        [eventSubscriptions]="metadata.eventSubcriptions"
+        [display]="metadata.display"
+        (loading)="onLoading($event)"></nt-vertical-bar>
+
+        <nt-horizontal-bar *ngIf="metadata.display.type === 'horizontal-bar'" 
+        [api]="metadata.api" 
+        [model]="metadata.response.model" 
+        [eventEmitters]="metadata.eventEmitters" 
+        [eventSubscriptions]="metadata.eventSubcriptions"
+        [display]="metadata.display"
+        (loading)="onLoading($event)"></nt-horizontal-bar>
+
+        <nt-pie-chart *ngIf="metadata.display.type === 'pie-chart'" 
+        [api]="metadata.api" 
+        [model]="metadata.response.model" 
+        [eventEmitters]="metadata.eventEmitters" 
+        [eventSubscriptions]="metadata.eventSubcriptions"
+        [display]="metadata.display"
+        (loading)="onLoading($event)"></nt-pie-chart>
+
+
+        <nt-line-chart *ngIf="metadata.display.type === 'line'" 
+        [api]="metadata.api" 
+        [model]="metadata.response.model" 
+        [eventEmitters]="metadata.eventEmitters" 
+        [eventSubscriptions]="metadata.eventSubcriptions"
+        [display]="metadata.display"
+        (loading)="onLoading($event)"></nt-line-chart>
+    </nz-card>
+</ng-container>
+

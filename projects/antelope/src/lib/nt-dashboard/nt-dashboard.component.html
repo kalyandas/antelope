@@ -1,0 +1,21 @@
+<ng-container *ngIf="!!metadata">
+    <nz-page-header [nzTitle]="metadata.title">
+        <nz-page-header-content>
+            <form nz-form [nzLayout]="'inline'">
+                <nz-form-item  *ngFor="let f of filters">
+                    <nz-input-group [nzAddOnBefore]="f.label" [nzSuffix]="suffixIn" >
+                        <input type="text" nz-input [value]="f.labelValue" readonly/>
+                    </nz-input-group>
+                    <ng-template #suffixIn>
+                        <span nz-icon nzType="close-circle" style="cursor: pointer;" (click)="onClearFilter(f)"></span>
+                    </ng-template>
+                </nz-form-item>
+            </form>
+        </nz-page-header-content>
+    </nz-page-header>
+    <div nz-row [nzGutter]="[8, 8]" *ngFor="let row of panelsMetadata" style="padding-left: 16px; padding-right: 16px;">
+        <div nz-col class="gutter-row" [nzOffset]="!!col.display.position.offset ? col.display.position.offset: 0" [nzSpan]="col.display.position.colspan" *ngFor="let col of row">
+            <nt-panel [metadata]="col"></nt-panel>
+        </div>
+    </div>
+</ng-container>

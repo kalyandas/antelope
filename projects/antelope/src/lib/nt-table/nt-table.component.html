@@ -1,0 +1,21 @@
+<nz-table [nzData]="data" [nzPageSize]="50" [nzScroll]="{ y: '240px' }" *ngIf="data">
+    <thead>
+        <tr>
+            <ng-container *ngFor="let r of model">
+                <th *ngIf="!r.hidden">{{r.label}}</th>
+            </ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of data">
+            <ng-container *ngFor="let r of model">
+                <td *ngIf="!r.hidden">
+                    <a href="javascript:void(0)" *ngIf="isEmitable(r.name);else nonEmitable" (click)="emit(r.name, d)">{{d[r.name]}}</a>
+                    <ng-template #nonEmitable>
+                        {{d[r.name]}}
+                    </ng-template>
+                </td>
+            </ng-container>
+        </tr>
+      </tbody>
+</nz-table>

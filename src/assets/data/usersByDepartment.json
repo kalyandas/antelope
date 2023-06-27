@@ -1,0 +1,26 @@
+[
+    {
+        "id": "2b05c08f-b11e-420c-8044-e65aa72b3309",
+        "code": "P04",
+        "name": "Business Development",
+        "count": 15
+    },
+    {
+        "id": "9a5627c2-1620-4c59-b04e-e76b5fd61b79",
+        "code": "KVEL",
+        "name": "Engineering",
+        "count": 10
+    },
+    {
+        "id": "9c0244af-6b86-4580-840d-20dc59edd597",
+        "code": "YCAR",
+        "name": "Product Management",
+        "count": 15
+    },
+    {
+        "id": "865b49e9-6af2-45ba-931f-b0019c009734",
+        "code": "FTTN",
+        "name": "Research and Development",
+        "count": 5
+    }
+]
