@@ -7,7 +7,7 @@ export interface Dashboard {
 export interface Panel {
     title:             string;
     api:               string;
-    response:          Response;
+    model:             Model[];
     display:           Display;
     eventSubcriptions: EventSubcription[];
     eventEmitters:     NtEventEmitter[];
@@ -39,11 +39,7 @@ export interface NtEventEmitter {
 export interface EventSubcription {
     name:         string;
     apiParameter: string;
-}
-
-export interface Response {
-    type:  string;
-    model: Model[];
+    required?: boolean;
 }
 
 export interface Model {

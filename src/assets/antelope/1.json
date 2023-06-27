@@ -5,27 +5,24 @@
         {
             "title": "Tenants",
             "api": "./assets/data/tenants.json",
-            "response": {
-                "type": "array",
-                "model": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code"
-                    },
-                    {
-                        "name": "name",
-                        "type": "string",
-                        "label": "Name"
-                    }
-                ]
-            },
+            "model": [
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code"
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                }
+            ],
             "display": {
                 "type": "table",
                 "position": {
@@ -46,28 +43,25 @@
         {
             "title": "Departments",
             "api": "./assets/data/departments.json",
-            "response": {
-                "type": "array",
-                "model":[
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code",
-                        "emitter": true
-                    },
-                    {
-                        "name": "name",
-                        "type": "string",
-                        "label": "Name"
-                    }
-                ]
-            },
+            "model":[
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code",
+                    "emitter": true
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                }
+            ],
             "display": {
                 "type": "table",
                 "position": {
@@ -78,7 +72,8 @@
             "eventSubcriptions": [
                 {
                     "name": "tenantId",
-                    "apiParameter": "tenantId"
+                    "apiParameter": "tenantId",
+                    "required": true
                 }
             ],
             "eventEmitters": [
@@ -93,37 +88,34 @@
         {
             "title": "Users",
             "api": "./assets/data/users.json",
-            "response": {
-                "type": "array",
-                "model": [
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code"
-                    },
-                    {
-                        "name": "firstName",
-                        "type": "string",
-                        "label": "First Name"
-                    },
-                    {
-                        "name": "lastName",
-                        "type": "string",
-                        "label": "Last Name"
-                    },
-                    {
-                        "name": "userName",
-                        "type": "string",
-                        "label": "User Name"
-                    }
-                ]
-            },
+            "model": [
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code"
+                },
+                {
+                    "name": "firstName",
+                    "type": "string",
+                    "label": "First Name"
+                },
+                {
+                    "name": "lastName",
+                    "type": "string",
+                    "label": "Last Name"
+                },
+                {
+                    "name": "userName",
+                    "type": "string",
+                    "label": "User Name"
+                }
+            ],
             "display": {
                 "type": "table",
                 "position": {
@@ -134,11 +126,13 @@
             "eventSubcriptions": [
                 {
                     "name": "tenantId",
-                    "apiParameter": "tenantId"
+                    "apiParameter": "tenantId",
+                    "required": true
                 },
                 {
                     "name": "departmentId",
-                    "apiParameter": "departmentId"
+                    "apiParameter": "departmentId",
+                    "required": true
                 }
             ],
             "eventEmitters": [
@@ -147,33 +141,30 @@
         {
             "title": "Users By Departments - (P-D)",
             "api": "./assets/data/usersByDepartment.json",
-            "response": {
-                "type": "array",
-                "model":[
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code",
-                        "emitter": true
-                    },
-                    {
-                        "name": "name",
-                        "type": "string",
-                        "label": "Name"
-                    },
-                    {
-                        "name": "count",
-                        "type": "number",
-                        "label": "Count"
-                    }
-                ]
-            },
+            "model":[
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code",
+                    "emitter": true
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                },
+                {
+                    "name": "count",
+                    "type": "number",
+                    "label": "Count"
+                }
+            ],
             "display": {
                 "type": "pie-chart",
                 "position": {
@@ -187,7 +178,8 @@
             "eventSubcriptions": [
                 {
                     "name": "tenantId",
-                    "apiParameter": "tenantId"
+                    "apiParameter": "tenantId",
+                    "required": true
                 }
             ],
             "eventEmitters": [
@@ -202,33 +194,30 @@
         {
             "title": "Users By Departments - (V)",
             "api": "./assets/data/usersByDepartment.json",
-            "response": {
-                "type": "array",
-                "model":[
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code",
-                        "emitter": true
-                    },
-                    {
-                        "name": "name",
-                        "type": "string",
-                        "label": "Name"
-                    },
-                    {
-                        "name": "count",
-                        "type": "number",
-                        "label": "Count"
-                    }
-                ]
-            },
+            "model":[
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code",
+                    "emitter": true
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                },
+                {
+                    "name": "count",
+                    "type": "number",
+                    "label": "Count"
+                }
+            ],
             "display": {
                 "type": "vertical-bar",
                 "position": {
@@ -243,7 +232,8 @@
             "eventSubcriptions": [
                 {
                     "name": "tenantId",
-                    "apiParameter": "tenantId"
+                    "apiParameter": "tenantId",
+                    "required": true
                 }
             ],
             "eventEmitters": [
@@ -258,33 +248,30 @@
         {
             "title": "Users By Departments - (H)",
             "api": "./assets/data/usersByDepartment.json",
-            "response": {
-                "type": "array",
-                "model":[
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code",
-                        "emitter": true
-                    },
-                    {
-                        "name": "name",
-                        "type": "string",
-                        "label": "Name"
-                    },
-                    {
-                        "name": "count",
-                        "type": "number",
-                        "label": "Count"
-                    }
-                ]
-            },
+            "model":[
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code",
+                    "emitter": true
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                },
+                {
+                    "name": "count",
+                    "type": "number",
+                    "label": "Count"
+                }
+            ],
             "display": {
                 "type": "horizontal-bar",
                 "position": {
@@ -299,7 +286,8 @@
             "eventSubcriptions": [
                 {
                     "name": "tenantId",
-                    "apiParameter": "tenantId"
+                    "apiParameter": "tenantId",
+                    "required": true
                 }
             ],
             "eventEmitters": [
@@ -314,33 +302,30 @@
         {
             "title": "Users By Departments - (P)",
             "api": "./assets/data/usersByDepartment.json",
-            "response": {
-                "type": "array",
-                "model":[
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code",
-                        "emitter": true
-                    },
-                    {
-                        "name": "name",
-                        "type": "string",
-                        "label": "Name"
-                    },
-                    {
-                        "name": "count",
-                        "type": "number",
-                        "label": "Count"
-                    }
-                ]
-            },
+            "model":[
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code",
+                    "emitter": true
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                },
+                {
+                    "name": "count",
+                    "type": "number",
+                    "label": "Count"
+                }
+            ],
             "display": {
                 "type": "pie-chart",
                 "position": {
@@ -354,7 +339,8 @@
             "eventSubcriptions": [
                 {
                     "name": "tenantId",
-                    "apiParameter": "tenantId"
+                    "apiParameter": "tenantId",
+                    "required": true
                 }
             ],
             "eventEmitters": [
@@ -369,43 +355,40 @@
         {
             "title": "Yearwise Users Created by Department",
             "api": "./assets/data/usersByDepartmentAndYear.json",
-            "response": {
-                "type": "array",
-                "model":[
-                    {
-                        "name": "id",
-                        "type": "string",
-                        "label": "Id",
-                        "hidden": true
-                    },
-                    {
-                        "name": "code",
-                        "type": "string",
-                        "label": "Code",
-                        "emitter": true
-                    },
-                    {
-                        "name": "name",
-                        "type": "string",
-                        "label": "Name"
-                    },
-                    {
-                        "name": "count",
-                        "type": "number",
-                        "label": "Count"
-                    },
-                    {
-                        "name": "year",
-                        "type": "number",
-                        "label": "Year"
-                    }
-                ]
-            },
+            "model":[
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code",
+                    "emitter": true
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                },
+                {
+                    "name": "count",
+                    "type": "number",
+                    "label": "Count"
+                },
+                {
+                    "name": "year",
+                    "type": "number",
+                    "label": "Year"
+                }
+            ],
             "display": {
                 "type": "line",
                 "position": {
                     "row": 4,
-                    "colspan": 8
+                    "colspan": 12
                 },
                 "valueProperty": "count",
                 "nameProperty": "name",
@@ -415,7 +398,8 @@
             "eventSubcriptions": [
                 {
                     "name": "tenantId",
-                    "apiParameter": "tenantId"
+                    "apiParameter": "tenantId",
+                    "required": true
                 },                
                 {
                     "name": "departmentId",
@@ -429,6 +413,74 @@
                     "source": "year",
                     "label": "Year"
                 }
+            ]
+        },
+        {
+            "title": "Users By Departments Monthwise - (V)",
+            "api": "./assets/data/usersByDeptAndYearMonthwise.json",
+            "model":[
+                {
+                    "name": "id",
+                    "type": "string",
+                    "label": "Id",
+                    "hidden": true
+                },
+                {
+                    "name": "code",
+                    "type": "string",
+                    "label": "Code",
+                    "emitter": true
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "label": "Name"
+                },
+                {
+                    "name": "year",
+                    "type": "string",
+                    "label": "Year"
+                },
+                {
+                    "name": "month",
+                    "type": "string",
+                    "label": "Month"
+                },
+                {
+                    "name": "count",
+                    "type": "number",
+                    "label": "Count"
+                }
+            ],
+            "display": {
+                "type": "vertical-bar",
+                "position": {
+                    "row": 4,
+                    "colspan": 12
+                },
+                "valueProperty": "count",
+                "nameProperty": "month",
+                "xAxisLabel": "Month",
+                "yAxisLabel": "Users"
+            },
+            "eventSubcriptions": [
+                {
+                    "name": "tenantId",
+                    "apiParameter": "tenantId",
+                    "required": true
+                },                
+                {
+                    "name": "departmentId",
+                    "apiParameter": "departmentId",
+                    "required": true
+                },                
+                {
+                    "name": "year",
+                    "apiParameter": "year",
+                    "required": true
+                }
+            ],
+            "eventEmitters": [
             ]
         }
     ]

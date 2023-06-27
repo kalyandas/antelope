@@ -37,20 +37,26 @@ export class BaseComponent implements OnInit {
   ngOnInit(): void {
     if(this.eventSubscriptions && this.eventSubscriptions.length > 0 ) {
       this.service.filtersEmitter.subscribe(fs => {
-        const fsFiltered = fs.filter(f => this.eventSubscriptions.map(e => e.name).includes(f.name));
-        if(fsFiltered && fsFiltered.length > 0) {
-          let apiParams = '';
-          fsFiltered.forEach((f, i) => {
-            if(i > 0) {
-              apiParams += '&';
-            } else {
-              apiParams += '?';
+        const reqFilters = this.eventSubscriptions.filter(e => e.required).map(e => e.name);
+        if(reqFilters.every(e => fs.map(f => f.name).includes(e))) {
+          const fsFiltered = fs.filter(f => this.eventSubscriptions.map(e => e.name).includes(f.name));
+          if(fsFiltered && fsFiltered.length > 0) {
+            let apiParams = '';
+            fsFiltered.forEach((f, i) => {
+              if(i > 0) {
+                apiParams += '&';
+              } else {
+                apiParams += '?';
+              }
+              apiParams += this.eventSubscriptions.find(ev => ev.name === f.name)?.apiParameter +'='+ f.value;
+            });
+            if(this.apiParams !== apiParams) {
+              this.apiParams = apiParams;
+              this.loadData(apiParams);
             }
-            apiParams += this.eventSubscriptions.find(ev => ev.name === f.name)?.apiParameter +'='+ f.value;
-          });
-          if(this.apiParams !== apiParams) {
-            this.apiParams = apiParams;
-            this.loadData(apiParams);
+          } else {
+            this.data = null;
+            this.loading.emit(false);
           }
         } else {
           this.data = null;
@@ -61,8 +67,6 @@ export class BaseComponent implements OnInit {
     } else {
       this.loadData();
     }
-
-    
   }
   
   loadData(apiParams = '') {
