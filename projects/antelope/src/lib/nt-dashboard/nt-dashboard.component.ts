@@ -41,16 +41,16 @@ export class NtDashboardComponent {
     if(!id) throw "Antelope cannot run";
     this.service.getMetadata(id).subscribe(ds => {
       this.metadata = ds;
-      const panels = ds.panels.sort((p1, p2) => p1.display.position.row - p2.display.position.row);
+      const panels = ds.panels.sort((p1, p2) => p1.display.row - p2.display.row);
       let row: Panel[] = [];
       let rI = 0;
       panels.forEach(p => {
-        if(rI !== p.display.position.row) {
+        if(rI !== p.display.row) {
           if(row.length > 0) {
             this.panelsMetadata.push(row);
           }
           row = [];
-          rI = p.display.position.row;
+          rI = p.display.row;
         }
         row.push(p);
       });

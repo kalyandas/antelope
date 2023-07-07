@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NtHorizontalBarComponent } from './nt-horizontal-bar/nt-horizontal-bar.component';
 import { NtPieChartComponent } from './nt-pie-chart/nt-pie-chart.component';
 import { NtLineChartComponent } from './nt-line-chart/nt-line-chart.component';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 
 @NgModule({
   declarations: [
@@ -43,10 +45,12 @@ import { NtLineChartComponent } from './nt-line-chart/nt-line-chart.component';
     NzFormModule,
     NzMessageModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzEmptyModule
   ],
   exports: [
     NtDashboardComponent
-  ]
+  ],
+  providers: [ { provide: NZ_I18N, useValue: en_US } ]
 })
 export class AntelopeModule { }

@@ -14,7 +14,7 @@
         </nz-page-header-content>
     </nz-page-header>
     <div nz-row [nzGutter]="[8, 8]" *ngFor="let row of panelsMetadata" style="padding-left: 16px; padding-right: 16px;">
-        <div nz-col class="gutter-row" [nzOffset]="!!col.display.position.offset ? col.display.position.offset: 0" [nzSpan]="col.display.position.colspan" *ngFor="let col of row">
+        <div nz-col class="gutter-row" [nzOffset]="!!col.display.offset ? col.display.offset: 0" [nzSpan]="col.display.colspan" *ngFor="let col of row">
             <nt-panel [metadata]="col"></nt-panel>
         </div>
     </div>

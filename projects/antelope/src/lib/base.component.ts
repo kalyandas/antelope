@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NtEventEmitter, EventSubcription, Model, NtEvent, Display } from './types/types';
+import { FilterEmitter, FilterSubcription, Model, NtEvent, Display } from './types/types';
 import { NtService } from './nt.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
@@ -19,9 +19,9 @@ export class BaseComponent implements OnInit {
     @Input()
     model!: Model[];
     @Input()
-    eventEmitters!: NtEventEmitter[];
+    filterEmitters!: FilterEmitter[];
     @Input()
-    eventSubscriptions!: EventSubcription[];
+    filterSubscriptions!: FilterSubcription[];
     @Input()
     display!: Display;
 
@@ -35,11 +35,11 @@ export class BaseComponent implements OnInit {
     public message: NzMessageService) { }
 
   ngOnInit(): void {
-    if(this.eventSubscriptions && this.eventSubscriptions.length > 0 ) {
+    if(this.filterSubscriptions && this.filterSubscriptions.length > 0 ) {
       this.service.filtersEmitter.subscribe(fs => {
-        const reqFilters = this.eventSubscriptions.filter(e => e.required).map(e => e.name);
+        const reqFilters = this.filterSubscriptions.filter(e => e.required).map(e => e.name);
         if(reqFilters.every(e => fs.map(f => f.name).includes(e))) {
-          const fsFiltered = fs.filter(f => this.eventSubscriptions.map(e => e.name).includes(f.name));
+          const fsFiltered = fs.filter(f => this.filterSubscriptions.map(e => e.name).includes(f.name));
           if(fsFiltered && fsFiltered.length > 0) {
             let apiParams = '';
             fsFiltered.forEach((f, i) => {
@@ -48,7 +48,7 @@ export class BaseComponent implements OnInit {
               } else {
                 apiParams += '?';
               }
-              apiParams += this.eventSubscriptions.find(ev => ev.name === f.name)?.apiParameter +'='+ f.value;
+              apiParams += this.filterSubscriptions.find(ev => ev.name === f.name)?.apiParameter +'='+ f.value;
             });
             if(this.apiParams !== apiParams) {
               this.apiParams = apiParams;
@@ -83,7 +83,7 @@ export class BaseComponent implements OnInit {
   }
 
   emit(source: string, data: any) {
-    const em = this.eventEmitters.find(e => e.source === source);
+    const em = this.filterEmitters.find(e => e.source === source);
     if(em) {
       this.service.emitter.emit({ 
         name: em.name, 
@@ -95,7 +95,7 @@ export class BaseComponent implements OnInit {
   }
 
   isEmitable(source: string) {
-    return this.eventEmitters && this.eventEmitters.findIndex(e => e.source === source) > -1;
+    return this.filterEmitters && this.filterEmitters.findIndex(e => e.source === source) > -1;
   }
 
 }

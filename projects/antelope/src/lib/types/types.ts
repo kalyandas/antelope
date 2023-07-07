@@ -9,13 +9,15 @@ export interface Panel {
     api:               string;
     model:             Model[];
     display:           Display;
-    eventSubcriptions: EventSubcription[];
-    eventEmitters:     NtEventEmitter[];
+    filterSubcriptions: FilterSubcription[];
+    filterEmitters:     FilterEmitter[];
 }
 
 export interface Display {
     type:     string;
-    position: Position;
+    row:     number;
+    colspan: number;
+    offset?: number;
     valueProperty?: string;
     nameProperty?: string;
     xAxisLabel?: string;
@@ -23,20 +25,14 @@ export interface Display {
     doughnut?: boolean;
 }
 
-export interface Position {
-    row:     number;
-    colspan: number;
-    offset?: number;
-}
-
-export interface NtEventEmitter {
+export interface FilterEmitter {
     name:  string;
     value: string;
     source: string;
     label: string;
 }
 
-export interface EventSubcription {
+export interface FilterSubcription {
     name:         string;
     apiParameter: string;
     required?: boolean;

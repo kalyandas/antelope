@@ -11,3 +11,5 @@
   (select)="onSelect($event)"
   *ngIf="data">
 </ngx-charts-bar-horizontal>
+
+<nz-empty nzNotFoundImage="simple" *ngIf="!data"></nz-empty>

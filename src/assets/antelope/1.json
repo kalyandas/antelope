@@ -1,6 +1,6 @@
 {
     "id": 1,
-    "title": "Dashboard 2",
+    "title": "Dashboard 1",
     "panels": [
         {
             "title": "Tenants",
@@ -25,13 +25,11 @@
             ],
             "display": {
                 "type": "table",
-                "position": {
-                    "row": 1,
-                    "colspan": 12
-                }
+                "row": 1,
+                "colspan": 12
             },
-            "eventSubcriptions": [],
-            "eventEmitters": [
+            "filterSubcriptions": [],
+            "filterEmitters": [
                 {
                     "name": "tenantId",
                     "value": "id",
@@ -64,19 +62,17 @@
             ],
             "display": {
                 "type": "table",
-                "position": {
-                    "row": 1,
-                    "colspan": 12
-                }
+                "row": 1,
+                "colspan": 12
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
                     "required": true
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
                 {
                     "name": "departmentId",
                     "value": "id",
@@ -118,12 +114,10 @@
             ],
             "display": {
                 "type": "table",
-                "position": {
-                    "row": 2,
-                    "colspan": 12
-                }
+                "row": 2,
+                "colspan": 12
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
@@ -135,7 +129,7 @@
                     "required": true
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
             ]
         },
         {
@@ -151,8 +145,7 @@
                 {
                     "name": "code",
                     "type": "string",
-                    "label": "Code",
-                    "emitter": true
+                    "label": "Code"
                 },
                 {
                     "name": "name",
@@ -167,22 +160,20 @@
             ],
             "display": {
                 "type": "pie-chart",
-                "position": {
-                    "row": 2,
-                    "colspan": 12
-                },
+                "row": 2,
+                "colspan": 12,
                 "valueProperty": "count",
                 "nameProperty": "name",
                 "doughnut": true
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
                     "required": true
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
                 {
                     "name": "departmentId",
                     "value": "id",
@@ -220,23 +211,21 @@
             ],
             "display": {
                 "type": "vertical-bar",
-                "position": {
-                    "row": 3,
-                    "colspan": 8
-                },
+                "row": 3,
+                "colspan": 8,
                 "valueProperty": "count",
                 "nameProperty": "name",
                 "xAxisLabel": "Departments",
                 "yAxisLabel": "Users"
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
                     "required": true
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
                 {
                     "name": "departmentId",
                     "value": "id",
@@ -273,24 +262,22 @@
                 }
             ],
             "display": {
-                "type": "horizontal-bar",
-                "position": {
-                    "row": 3,
-                    "colspan": 8
-                },
+                "type": "table",
+                "row": 3,
+                "colspan": 8,
                 "valueProperty": "count",
                 "nameProperty": "name",
                 "xAxisLabel": "Users",
                 "yAxisLabel": "Departments"
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
                     "required": true
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
                 {
                     "name": "departmentId",
                     "value": "id",
@@ -328,22 +315,20 @@
             ],
             "display": {
                 "type": "pie-chart",
-                "position": {
-                    "row": 3,
-                    "colspan": 8
-                },
+                "row": 3,
+                "colspan": 8,
                 "valueProperty": "count",
                 "nameProperty": "name",
                 "doughnut": false
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
                     "required": true
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
                 {
                     "name": "departmentId",
                     "value": "id",
@@ -386,16 +371,14 @@
             ],
             "display": {
                 "type": "line",
-                "position": {
-                    "row": 4,
-                    "colspan": 12
-                },
+                "row": 4,
+                "colspan": 12,
                 "valueProperty": "count",
                 "nameProperty": "name",
                 "xAxisLabel": "Year",
                 "yAxisLabel": "# of Users"
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
@@ -406,7 +389,7 @@
                     "apiParameter": "departmentId"
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
                 {
                     "name": "year",
                     "value": "year",
@@ -454,16 +437,14 @@
             ],
             "display": {
                 "type": "vertical-bar",
-                "position": {
-                    "row": 4,
-                    "colspan": 12
-                },
+                "row": 4,
+                "colspan": 12,
                 "valueProperty": "count",
                 "nameProperty": "month",
                 "xAxisLabel": "Month",
                 "yAxisLabel": "Users"
             },
-            "eventSubcriptions": [
+            "filterSubcriptions": [
                 {
                     "name": "tenantId",
                     "apiParameter": "tenantId",
@@ -480,7 +461,7 @@
                     "required": true
                 }
             ],
-            "eventEmitters": [
+            "filterEmitters": [
             ]
         }
     ]

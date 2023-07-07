@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NtEventEmitter, EventSubcription, Model, NtEvent, Display } from './types/types';
-import { NtService } from './nt.service';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { Component } from '@angular/core';
 import { BaseComponent } from './base.component';
 
 @Component({
@@ -55,8 +52,8 @@ export class MultiSeriesChartBaseComponent extends BaseComponent {
 
   onSelect(event: any) {
     console.log('event ===>', event);
-    if(this.eventEmitters) {
-      this.eventEmitters.forEach(em => {
+    if(this.filterEmitters) {
+      this.filterEmitters.forEach(em => {
         if(event.extra[em.source]) {
           this.service.emitter.emit({ 
             name: em.name, 
